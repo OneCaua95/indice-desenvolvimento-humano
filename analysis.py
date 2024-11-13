@@ -88,7 +88,7 @@ class Analysis:
             columns=["Sigla", column],
             key_on="feature.properties.SIGLA",  # Chave para o arquivo GeoJSON do IBGE
             nan_fill_color="white",
-            fill_color='YlOrRd',
+            fill_color='RdYlGn',
             legend_name=f'{column} por Estado'
         )
         
@@ -125,7 +125,7 @@ class Analysis:
             columns=["Sigla", column],
             key_on="feature.properties.SIGLA",  # Chave para o arquivo GeoJSON do IBGE
             nan_fill_color="white",
-            fill_color='YlOrRd',
+            fill_color='RdYlGn',
             legend_name=f'{column} por Estado'
         )
         
