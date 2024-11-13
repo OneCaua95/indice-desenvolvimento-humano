@@ -2,9 +2,9 @@ import streamlit as st
 import tempfile
 import streamlit.components.v1 as components
 import plotly.express as px
-from extract import Extract
-from transform import Transform
-from analysis import Analysis
+from source.extract import Extract
+from source.transform import Transform
+from source.analysis import Analysis
 
 st.set_page_config(page_title="Análise de Dados", layout="wide")
 
