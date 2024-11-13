@@ -47,7 +47,7 @@ def analysis_state(year, column):
     st.title(f"Análise do Estado para o Ano {year}")
     show_metrics(df_min, df_max, df_mean, df_std, worst_value, best_value)
     
-    st.title("Heatmap de Índice de Desenvolvimento Humano Brasil")
+    st.title("Heatmap de Índice de Desenvolvimento Humano Brasil por Estados")
     
     mapa = Analysis().get_state_heatmap(year, column)
 
@@ -65,7 +65,17 @@ def analysis_region(year, column):
     st.write(f"### Análise da Região Metropolitana para o Ano {year}")
     show_metrics(df_min, df_max, df_mean, df_std, worst_value, best_value)
     
-    show_graph(df, column, f"Análise do {column} - Região Metropolitana")
+    st.title("Heatmap de Índice de Desenvolvimento Humano Brasil por Região Metropolitana")
+    
+    mapa = Analysis().get_region_heatmap(year, column)
+
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".html") as tmpfile:
+        mapa.save(tmpfile.name)
+        temp_html = tmpfile.name
+
+    with open(temp_html, "r", encoding="utf-8") as file:
+        map_html = file.read()
+    components.html(map_html, height=500, width=1400)
 
 def analysis_country(column):
     df, df_min, df_mean, df_max, df_std, worst_value, best_value = Analysis().get_analysis_by_country(column)

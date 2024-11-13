@@ -1,6 +1,7 @@
 from transform import Transform
 import folium as fl
 import glob
+import re
 
 data = Transform()
 
@@ -94,4 +95,41 @@ class Analysis:
         choropleth.add_to(br_map)
 
         return br_map
+    
+    def extract_region_sigla(self, nome):
+        match = re.search(r'\((\w{2})\)', nome)  # Busca uma sigla entre parênteses, como "(AM)"
+
+        return match.group(1) if match else None
+   
+
+    def get_region_heatmap(self, year, column):
+        df, *_ = self.get_analysis_by_region(year, column)
+        geojson_path = glob.glob("assets/br_states.json")[0]
+
+        df['Sigla'] = df['Nome'].apply(self.extract_region_sigla)
         
+        if df['Sigla'].isnull().any():
+            missing_states = df[df['Sigla'].isnull()]['Nome'].unique()
+            print(f"Estados sem correspondência: {missing_states}")
+            return None
+        
+        if df[column].isnull().any():
+            print(f"Valores NaN encontrados na coluna {column}")
+            return None
+
+        rm_map = fl.Map(location=[-15.7801, -47.9292], zoom_start=4)
+
+        choropleth = fl.Choropleth(
+            geo_data=geojson_path,
+            data=df,
+            columns=["Sigla", column],
+            key_on="feature.properties.SIGLA",  # Chave para o arquivo GeoJSON do IBGE
+            nan_fill_color="white",
+            fill_color='YlOrRd',
+            legend_name=f'{column} por Estado'
+        )
+        
+        choropleth.add_to(rm_map)
+
+        return rm_map
+   
