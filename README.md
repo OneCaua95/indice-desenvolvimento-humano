@@ -21,7 +21,7 @@ Além disso, foram incorporadas as bibliotecas **Folium** para a criação de um
 
 ## Link para o Projeto
 
-Você pode acessar o projeto através do seguinte link: [Projeto de Análise de Dados](#) *(substitua este link pelo URL real do seu projeto)*.
+Você pode acessar o projeto através do seguinte link: [Projeto de Análise de Dados](#).
 
 ## Como Rodar o Projeto
 
@@ -30,4 +30,5 @@ Você pode acessar o projeto através do seguinte link: [Projeto de Análise de 
    git clone https://github.com/OneCaua95/indice-desenvolvimento-humano.git
 
 2. Rode o comando no python:
-   ```streamlit run main.py
+   ```
+   streamlit run main.py
