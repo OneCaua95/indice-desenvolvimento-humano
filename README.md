@@ -28,6 +28,6 @@ Você pode acessar o projeto através do seguinte link: [Projeto de Análise de 
 1. Clone este repositório:
    ```bash
    git clone https://github.com/OneCaua95/indice-desenvolvimento-humano.git
-   
+
 2. Rode o comando no python:
-   streamlit run main.py
+   ```streamlit run main.py

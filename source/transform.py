@@ -1,5 +1,4 @@
 from extract import Extract
-from pandasgui import show
 
 data = Extract()
 
