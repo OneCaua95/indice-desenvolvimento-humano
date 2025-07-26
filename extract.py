@@ -6,9 +6,18 @@ class Extract:
         self.data_cache = data_cache
         self.data = None
         
-
+    """
     def extract_data(self):
         file = 'https://www.undp.org/sites/g/files/zskgke326/files/2023-07/base_de_dados.xlsx'
+
+        df = read_excel(file)
+
+        return df
+
+    """ 
+
+    def extract_data(self):
+        file = 'data/base_de_dados.xlsx'
 
         df = read_excel(file)
 
@@ -23,4 +32,3 @@ class Extract:
         self.data = df
 
         return df
-           
