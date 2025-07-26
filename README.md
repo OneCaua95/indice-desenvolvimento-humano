@@ -21,7 +21,7 @@ Além disso, foram incorporadas as bibliotecas **Folium** para a criação de um
 
 ## Link para o Projeto
 
-Você pode acessar o projeto através do seguinte link: [Projeto de Análise de Dados](#).
+Você pode acessar o projeto através do seguinte link: [Projeto de Análise de Dados](https://idh-brasil.streamlit.app/)
 
 ## Como Rodar o Projeto
 
